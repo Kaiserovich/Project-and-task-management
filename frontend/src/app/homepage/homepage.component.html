@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="col-lg-6">
+    <button class="" (click)="ProjectVisible()">New Project</button>
+    <button class="" (click)="TaskVisible()">New Task</button>
+    <button class="" (click)="UserVisible()">New User</button>
+
+  </div>
+ <div class="col-lg-6">
+  <input type="filters" placeholder="Filters" name="filt" required>
+ </div>
+</div>
+
+ <div class="container">
+<table class="table">
+  <thead class="thead-inverse">
+  <tr>
+    <th>Code</th>
+    <th>Task</th>
+    <th>Priority</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th>Due Date</th>
+    <th>Estimation</th>
+    <th>Assignee</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">1</th>
+    <td>Mark</td>
+    <td>Otto</td>
+    <td>@mdo</td>
+  </tr>
+  <tr>
+    <th scope="row">2</th>
+    <td>Jacob</td>
+    <td>Thornton</td>
+    <td>@fat</td>
+  </tr>
+  <tr>
+    <th scope="row">3</th>
+    <td>Larry</td>
+    <td>the Bird</td>
+    <td>@twitter</td>
+  </tr>
+  </tbody>
+</table>
+ </div>
+<app-overlay [isVisible]="isCreateTaskVisible || isCreateUserVisible|| isCreateProjectVisible" (onChanged)="onChanged($event)"></app-overlay>
+
+<app-create-user *ngIf="isCreateUserVisible"></app-create-user>
+<app-create-task *ngIf="isCreateTaskVisible"></app-create-task>
+<app-create-project *ngIf="isCreateProjectVisible"></app-create-project>
+
+
+

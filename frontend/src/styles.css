@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  background-color: #f2f2f2;
+}
+
+.test{
+}
+.centered {
+  text-align: center;
+}
+
+.righted {
+  float: right;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=textSecond] {
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=filters]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+select{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+
+button {
+  color: #fff; /* цвет текста */
+  border-radius: 0.4em;
+  text-decoration: none; /* убирать подчёркивание у ссылок */
+  user-select: none; /* убирать выделение текста */
+  background: rgb(212, 75, 56); /* фон кнопки */
+  padding: .6em 2em; /* отступ от текста */
+  transition: 0.2s;
+
+  margin: 8px 0;
+
+}
+
+button:hover {
+  background: rgb(232, 95, 76);
+}
+
+button:active {
+  background: rgb(152, 15, 0);
+}
+
+.containerCompact {
+  padding: 10px;
+  border: 1px solid rgba(5, 23, 25, 0.07);
+  border-radius: 0.4em;
+  box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.08),
+  0 16px 10px -8px rgba(0, 0, 0, 0.04);
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+}
