@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FAPI/FAPI.iml" filepath="$PROJECT_DIR$/FAPI/FAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/NC-2019-First.iml" filepath="$PROJECT_DIR$/.idea/NC-2019-First.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
     </modules>
   </component>
 </project>
