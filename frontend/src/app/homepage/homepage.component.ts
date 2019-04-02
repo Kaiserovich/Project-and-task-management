@@ -35,5 +35,10 @@ export class HomepageComponent implements OnInit {
     this.isCreateProjectVisible = !this.isCreateProjectVisible;
   }
 
+  public onChanged(event): void {
+    this.isCreateUserVisible = false;
+    this.isCreateTaskVisible = false;
+    this.isCreateProjectVisible = false;
+  }
 }
 

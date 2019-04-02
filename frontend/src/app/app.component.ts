@@ -13,6 +13,9 @@ export class AppComponent {
 
   }
 
+  public isWelcomePageVisible: boolean = true;
+  public isHomePageVisible: boolean = false;
+
   public clickFunction():void{
     this.http.get( "/api/").subscribe( value => {
       console.log(value);
