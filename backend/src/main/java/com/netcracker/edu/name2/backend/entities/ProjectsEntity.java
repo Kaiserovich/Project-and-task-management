@@ -1,7 +1,6 @@
 package com.netcracker.edu.name2.backend.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "projects", schema = "mydb", catalog = "")
@@ -9,7 +8,6 @@ public class ProjectsEntity {
     private int idProject;
     private String summary;
     private int reporter;
-    private Collection<TasksEntity> tasksByIdProject;
 
     @Id
     @Column(name = "idProject")
@@ -61,14 +59,5 @@ public class ProjectsEntity {
         result = 31 * result + (summary != null ? summary.hashCode() : 0);
         result = 31 * result + reporter;
         return result;
-    }
-
-    @OneToMany(mappedBy = "projectsByIdProject")
-    public Collection<TasksEntity> getTasksByIdProject() {
-        return tasksByIdProject;
-    }
-
-    public void setTasksByIdProject(Collection<TasksEntity> tasksByIdProject) {
-        this.tasksByIdProject = tasksByIdProject;
     }
 }

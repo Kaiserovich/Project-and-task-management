@@ -2,7 +2,6 @@ package com.netcracker.edu.name2.backend.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Collection;
 
 @Entity
 @Table(name = "tasks", schema = "mydb", catalog = "")
@@ -20,8 +19,7 @@ public class TasksEntity {
     private int idStatus;
     private int assignee;
     private int reporter;
-    private Collection<AttachmentsEntity> attachmentsByIdTask;
-    private Collection<CommentsEntity> commentsByIdTask;
+    private ProjectsEntity projectsByIdProject;
     private PrioritiesEntity prioritiesByIdPriority;
     private StatusEntity statusByIdStatus;
 
@@ -197,26 +195,18 @@ public class TasksEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "tasksByIdTask")
-    public Collection<AttachmentsEntity> getAttachmentsByIdTask() {
-        return attachmentsByIdTask;
+    @ManyToOne
+    @JoinColumn(name = "idProject", referencedColumnName = "idProject", nullable = false, insertable = false, updatable = false)
+    public ProjectsEntity getProjectsByIdProject() {
+        return projectsByIdProject;
     }
 
-    public void setAttachmentsByIdTask(Collection<AttachmentsEntity> attachmentsByIdTask) {
-        this.attachmentsByIdTask = attachmentsByIdTask;
-    }
-
-    @OneToMany(mappedBy = "tasksByIdTask")
-    public Collection<CommentsEntity> getCommentsByIdTask() {
-        return commentsByIdTask;
-    }
-
-    public void setCommentsByIdTask(Collection<CommentsEntity> commentsByIdTask) {
-        this.commentsByIdTask = commentsByIdTask;
+    public void setProjectsByIdProject(ProjectsEntity projectsByIdProject) {
+        this.projectsByIdProject = projectsByIdProject;
     }
 
     @ManyToOne
-    @JoinColumn(name = "idPriority", referencedColumnName = "idPriority", nullable = false)
+    @JoinColumn(name = "idPriority", referencedColumnName = "idPriority", nullable = false, insertable = false, updatable = false)
     public PrioritiesEntity getPrioritiesByIdPriority() {
         return prioritiesByIdPriority;
     }
@@ -226,7 +216,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idStatus", referencedColumnName = "idStatus", nullable = false)
+    @JoinColumn(name = "idStatus", referencedColumnName = "idStatus", nullable = false , insertable = false, updatable = false)
     public StatusEntity getStatusByIdStatus() {
         return statusByIdStatus;
     }

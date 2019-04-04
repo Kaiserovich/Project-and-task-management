@@ -12,6 +12,7 @@ export class WelcomepageComponent implements OnInit {
   ngOnInit() {
   }
   @Output() onChanged = new EventEmitter<boolean>();
+
   public LoginClick():void{
     this.onChanged.emit(false);
   }

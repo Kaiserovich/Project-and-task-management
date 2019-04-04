@@ -1,7 +1,6 @@
 package com.netcracker.edu.name2.backend.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "users", schema = "mydb", catalog = "")
@@ -11,10 +10,6 @@ public class UsersEntity {
     private String password;
     private String personalData;
     private int idRole;
-    private Collection<CommentsEntity> commentsByIdUsers;
-    private Collection<ProjectsEntity> projectsByIdUsers;
-    private Collection<TasksEntity> tasksByIdUsers;
-    private Collection<TasksEntity> tasksByIdUsers_0;
     private RolesEntity rolesByIdRole;
 
     @Id
@@ -93,44 +88,8 @@ public class UsersEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "usersByIdUsers")
-    public Collection<CommentsEntity> getCommentsByIdUsers() {
-        return commentsByIdUsers;
-    }
-
-    public void setCommentsByIdUsers(Collection<CommentsEntity> commentsByIdUsers) {
-        this.commentsByIdUsers = commentsByIdUsers;
-    }
-
-    @OneToMany(mappedBy = "usersByReporter")
-    public Collection<ProjectsEntity> getProjectsByIdUsers() {
-        return projectsByIdUsers;
-    }
-
-    public void setProjectsByIdUsers(Collection<ProjectsEntity> projectsByIdUsers) {
-        this.projectsByIdUsers = projectsByIdUsers;
-    }
-
-    @OneToMany(mappedBy = "usersByAssignee")
-    public Collection<TasksEntity> getTasksByIdUsers() {
-        return tasksByIdUsers;
-    }
-
-    public void setTasksByIdUsers(Collection<TasksEntity> tasksByIdUsers) {
-        this.tasksByIdUsers = tasksByIdUsers;
-    }
-
-    @OneToMany(mappedBy = "usersByReporter")
-    public Collection<TasksEntity> getTasksByIdUsers_0() {
-        return tasksByIdUsers_0;
-    }
-
-    public void setTasksByIdUsers_0(Collection<TasksEntity> tasksByIdUsers_0) {
-        this.tasksByIdUsers_0 = tasksByIdUsers_0;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false)
+    @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false , insertable = false, updatable = false)
     public RolesEntity getRolesByIdRole() {
         return rolesByIdRole;
     }

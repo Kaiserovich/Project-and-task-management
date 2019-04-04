@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-homepage *ngIf="isHomePageVisible"></app-homepage>
-<app-welcomepage *ngIf="isWelcomePageVisible"></app-welcomepage>
+<app-welcomepage *ngIf="isWelcomePageVisible" (onChanged)="closeWelcomePageAndOpenHomePage()"></app-welcomepage>
 
 <!--
 
