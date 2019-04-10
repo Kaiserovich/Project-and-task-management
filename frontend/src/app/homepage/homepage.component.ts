@@ -24,7 +24,6 @@ export class HomepageComponent implements OnInit {
 
   public UserVisible(): void {
     this.isCreateUserVisible = !this.isCreateUserVisible;
-    this.isOverlayVisible = !this.isOverlayVisible;
   }
 
   public TaskVisible(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-create-user',
@@ -11,5 +11,9 @@ export class CreateUserComponent implements OnInit {
 
   ngOnInit() {
   }
+  @Output() onCreateUser = new EventEmitter<boolean>();
 
+  public onCreateUserClick():void {
+    this.onCreateUser.emit(false);
+  }
 }

@@ -52,9 +52,9 @@
  </div>
 <app-overlay [isVisible]="isCreateTaskVisible || isCreateUserVisible|| isCreateProjectVisible" (onChanged)="onChanged($event)"></app-overlay>
 
-<app-create-user *ngIf="isCreateUserVisible"></app-create-user>
-<app-create-task *ngIf="isCreateTaskVisible"></app-create-task>
-<app-create-project *ngIf="isCreateProjectVisible"></app-create-project>
+<app-create-user *ngIf="isCreateUserVisible" (onCreateUser)="UserVisible()"></app-create-user>
+<app-create-task *ngIf="isCreateTaskVisible" (onCreateTask)="TaskVisible()"></app-create-task>
+<app-create-project *ngIf="isCreateProjectVisible" (onCreateProject)="ProjectVisible()" ></app-create-project>
 
 
 
