@@ -13,7 +13,7 @@ public class UsersEntity {
     private RolesEntity rolesByIdRole;
 
     @Id
-    @Column(name = "idUsers")
+    @Column(name = "idUsers" )
     public int getIdUsers() {
         return idUsers;
     }
@@ -23,7 +23,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "e-mail")
+    @Column(name = "eMail")
     public String geteMail() {
         return eMail;
     }
@@ -53,7 +53,7 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "idRole")
+    @Column(name = "idRole", insertable = false, updatable = false)
     public int getIdRole() {
         return idRole;
     }
@@ -89,7 +89,7 @@ public class UsersEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false , insertable = false, updatable = false)
+    @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false)
     public RolesEntity getRolesByIdRole() {
         return rolesByIdRole;
     }

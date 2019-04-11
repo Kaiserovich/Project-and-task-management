@@ -19,7 +19,6 @@ public class TasksEntity {
     private int idStatus;
     private int assignee;
     private int reporter;
-    private ProjectsEntity projectsByIdProject;
     private PrioritiesEntity prioritiesByIdPriority;
     private StatusEntity statusByIdStatus;
 
@@ -114,7 +113,7 @@ public class TasksEntity {
     }
 
     @Basic
-    @Column(name = "idPriority")
+    @Column(name = "idPriority" ,insertable = false, updatable = false)
     public int getIdPriority() {
         return idPriority;
     }
@@ -124,7 +123,7 @@ public class TasksEntity {
     }
 
     @Basic
-    @Column(name = "idStatus")
+    @Column(name = "idStatus", insertable = false, updatable = false)
     public int getIdStatus() {
         return idStatus;
     }
@@ -196,17 +195,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idProject", referencedColumnName = "idProject", nullable = false, insertable = false, updatable = false)
-    public ProjectsEntity getProjectsByIdProject() {
-        return projectsByIdProject;
-    }
-
-    public void setProjectsByIdProject(ProjectsEntity projectsByIdProject) {
-        this.projectsByIdProject = projectsByIdProject;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "idPriority", referencedColumnName = "idPriority", nullable = false, insertable = false, updatable = false)
+    @JoinColumn(name = "idPriority", referencedColumnName = "idPriority", nullable = false)
     public PrioritiesEntity getPrioritiesByIdPriority() {
         return prioritiesByIdPriority;
     }
@@ -216,7 +205,7 @@ public class TasksEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "idStatus", referencedColumnName = "idStatus", nullable = false , insertable = false, updatable = false)
+    @JoinColumn(name = "idStatus", referencedColumnName = "idStatus", nullable = false)
     public StatusEntity getStatusByIdStatus() {
         return statusByIdStatus;
     }
