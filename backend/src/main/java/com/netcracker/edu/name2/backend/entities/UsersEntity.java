@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "users", schema = "mydb", catalog = "")
 public class UsersEntity {
     private int idUsers;
-    private String eMail;
+    private String login;
     private String password;
     private String personalData;
     private int idRole;
@@ -23,13 +23,13 @@ public class UsersEntity {
     }
 
     @Basic
-    @Column(name = "eMail")
-    public String geteMail() {
-        return eMail;
+    @Column(name = "login")
+    public String getLogin() {
+        return login;
     }
 
-    public void seteMail(String eMail) {
-        this.eMail = eMail;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     @Basic
@@ -71,7 +71,7 @@ public class UsersEntity {
 
         if (idUsers != that.idUsers) return false;
         if (idRole != that.idRole) return false;
-        if (eMail != null ? !eMail.equals(that.eMail) : that.eMail != null) return false;
+        if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (personalData != null ? !personalData.equals(that.personalData) : that.personalData != null) return false;
 
@@ -81,7 +81,7 @@ public class UsersEntity {
     @Override
     public int hashCode() {
         int result = idUsers;
-        result = 31 * result + (eMail != null ? eMail.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (personalData != null ? personalData.hashCode() : 0);
         result = 31 * result + idRole;

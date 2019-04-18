@@ -19,11 +19,18 @@ public class UserServiceImpl implements UserService {
         return (List<UsersEntity>) userRepository.findAll();
     }
     @Override
-    public UsersEntity getUserByPassword(String password){
-        return userRepository.getUserByPassword(password);
+    public UsersEntity getUserByIdUsers(int idUser){
+        return userRepository.getUserByIdUsers(idUser);
 
     }
-
+    @Override
+    public UsersEntity getUserByLogin (String login){
+        return userRepository.getUserByLogin(login);
+    }
+    @Override
+    public UsersEntity save(UsersEntity user) {
+        return userRepository.save(user);
+    }
 
 
 }

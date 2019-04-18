@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface UserService {
     List<UsersEntity> findAll();
-    UsersEntity getUserByPassword(String password);
+    UsersEntity getUserByIdUsers(int idUser);
+    UsersEntity getUserByLogin (String login);
+
+    UsersEntity save(UsersEntity user);
 
 }

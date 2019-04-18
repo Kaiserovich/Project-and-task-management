@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PrioritetRepository extends CrudRepository<PrioritiesEntity, Long>{
+
+
 }
