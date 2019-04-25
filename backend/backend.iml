@@ -9,7 +9,7 @@
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
           <factory-entry name="Entities" value="b8b34add-1e50-4326-a9d4-bfee3b87eb2c" />
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="5003f8cb-02f0-47d7-a815-68b0fb5669c7" />
           <factory-entry name="noname-a.xml@0" value="b8b34add-1e50-4326-a9d4-bfee3b87eb2c" />
         </datasource-mapping>
         <naming-strategy-map />

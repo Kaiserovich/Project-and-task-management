@@ -1,25 +1,17 @@
-package com.netcracker.edu.name2.backend.entities;
+package com.netcracker.edu.main.models;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "priorities", schema = "mydb")
-public class PrioritiesEntity {
-    private int idPriority;
+public class Role {
+    private int idRole;
     private String name;
 
-    @Id
-    @Column(name = "idPriority")
-    public int getIdPriority() {
-        return idPriority;
+    public int getIdRole() {
+        return idRole;
     }
 
-    public void setIdPriority(int idPriority) {
-        this.idPriority = idPriority;
+    public void setIdRole(int idRole) {
+        this.idRole = idRole;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -33,9 +25,9 @@ public class PrioritiesEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PrioritiesEntity that = (PrioritiesEntity) o;
+        Role that = (Role) o;
 
-        if (idPriority != that.idPriority) return false;
+        if (idRole != that.idRole) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
@@ -43,7 +35,7 @@ public class PrioritiesEntity {
 
     @Override
     public int hashCode() {
-        int result = idPriority;
+        int result = idRole;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
     }

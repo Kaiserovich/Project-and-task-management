@@ -1,12 +1,12 @@
 package com.netcracker.edu.main.models;
 
 public class User {
-  /*  private int idUsers;
+    private int idUsers;
     private String login;
     private String password;
     private String personalData;
     private int idRole;
-    private RolesEntity rolesByIdRole;
+    private Role rolesByIdRole;
 
 
     public int getIdUsers() {
@@ -56,7 +56,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UsersEntity that = (UsersEntity) o;
+        User that = (User) o;
 
         if (idUsers != that.idUsers) return false;
         if (idRole != that.idRole) return false;
@@ -77,13 +77,11 @@ public class User {
         return result;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false)
-    public RolesEntity getRolesByIdRole() {
+       public Role getRolesByIdRole() {
         return rolesByIdRole;
     }
 
-    public void setRolesByIdRole(RolesEntity rolesByIdRole) {
+    public void setRolesByIdRole(Role rolesByIdRole) {
         this.rolesByIdRole = rolesByIdRole;
-    }*/
+    }
 }

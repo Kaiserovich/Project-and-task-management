@@ -3,7 +3,7 @@ package com.netcracker.edu.name2.backend.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "projects", schema = "mydb", catalog = "")
+@Table(name = "projects", schema = "mydb")
 public class ProjectsEntity {
     private int idProject;
     private String summary;
