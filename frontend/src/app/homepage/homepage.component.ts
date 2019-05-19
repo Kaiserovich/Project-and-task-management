@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Output, OnInit} from '@angular/core';
-import {log} from "util";
+import {Task} from '../models/task';
+import {TaskService} from '../services/task.service';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-homepage',
@@ -11,15 +13,23 @@ export class HomepageComponent implements OnInit {
   public isCreateUserVisible: boolean = false;
   public isCreateProjectVisible: boolean = false;
   public isCreateTaskVisible: boolean = false;
-  public isOverlayVisible: boolean = false;
+  tasks:Task[];
 
 
+  private subscriptions: Subscription[] = [];
 
-
-  constructor() {
+  constructor(private taskService:TaskService) {
   }
 
   ngOnInit() {
+    this.loadAllTasks()
+  }
+  @Output() onHomepage = new EventEmitter<boolean>();
+
+  private loadAllTasks(): void{
+    this.subscriptions.push(this.taskService.getAllTask().subscribe( tasks=>{
+      this.tasks = tasks as Task[];
+    }))
   }
 
   public UserVisible(): void {
@@ -38,6 +48,13 @@ export class HomepageComponent implements OnInit {
     this.isCreateUserVisible = false;
     this.isCreateTaskVisible = false;
     this.isCreateProjectVisible = false;
+  }
+
+  public EditClick(task):void {
+    this.onHomepage.emit(false);
+
+
+
   }
 }
 

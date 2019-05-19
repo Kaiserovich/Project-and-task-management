@@ -11,9 +11,6 @@ export class WelcomepageComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getAllUsers().subscribe(() => {
-      console.log("asdasd");
-    });
 
   }
   @Output() onChanged = new EventEmitter<boolean>();

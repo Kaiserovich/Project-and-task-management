@@ -1,15 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-homepage *ngIf="isHomePageVisible"></app-homepage>
-<app-welcomepage *ngIf="isWelcomePageVisible" (onChanged)="closeWelcomePageAndOpenHomePage()"></app-welcomepage>
-
+<app-homepage *ngIf="isHomePageVisible" (onHomepage)="HomePageVisible()"></app-homepage>
+<app-welcomepage *ngIf="isWelcomePageVisible"  (onChanged)="closeWelcomePageAndOpenHomePage()" ></app-welcomepage>
+<app-workpage *ngIf="isWorkPageVisible" (onWorkpage)="WorkPageVisible()"></app-workpage>
 <!--
 
 
-<app-workpage></app-workpage>
 
 
 
-<app-header></app-header>
+
+<app-header></app-header>1
 <router-outlet></router-outlet>
 
 -->

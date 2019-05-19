@@ -24,15 +24,23 @@ export class AppComponent {
 
   public isWelcomePageVisible: boolean = true;
   public isHomePageVisible: boolean = false;
+  public isWorkPageVisible: boolean = false;
 
   public closeWelcomePageAndOpenHomePage():void{
     this.isHomePageVisible = true;
-    this.isWelcomePageVisible = false;
+    this.isWelcomePageVisible = ! this.isWelcomePageVisible;
   }
 
-  public openHomePage():void{
-
+  public HomePageVisible(): void {
+    this.isHomePageVisible = ! this.isHomePageVisible;
+    this.isWorkPageVisible = ! this.isWorkPageVisible;
   }
+
+  public WorkPageVisible(): void {
+    this.isHomePageVisible = ! this.isHomePageVisible;
+    this.isWorkPageVisible = ! this.isWorkPageVisible;
+  }
+
 
 
   public clickFunction():void{
