@@ -15,7 +15,7 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @RequestMapping(value = "/idUser/{idUser}", method = RequestMethod.GET)
+    @RequestMapping(value = "/idTask/{idTask}", method = RequestMethod.GET)
     public ResponseEntity<TasksEntity> getTaskByIdTask(@PathVariable(name = "idTask") int idTask) {
         TasksEntity task = taskService.getTaskByIdTask(idTask);
         return ResponseEntity.ok(task);
@@ -26,7 +26,7 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public TasksEntity saveTask(@RequestBody TasksEntity user) {
-        return taskService.save(user);
+    public TasksEntity saveTask(@RequestBody TasksEntity task) {
+        return taskService.save(task);
     }
 }

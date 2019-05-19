@@ -1,17 +1,11 @@
-package com.netcracker.edu.name2.backend.entities;
+package com.netcracker.edu.main.models;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "comments", schema = "mydb")
-public class CommentsEntity {
+public class Comment {
     private int idComment;
     private int idTask;
     private String comment;
     private int idUser;
 
-    @Id
-    @Column(name = "idComment")
     public int getIdComment() {
         return idComment;
     }
@@ -20,8 +14,6 @@ public class CommentsEntity {
         this.idComment = idComment;
     }
 
-    @Basic
-    @Column(name = "idTask")
     public int getIdTask() {
         return idTask;
     }
@@ -30,8 +22,6 @@ public class CommentsEntity {
         this.idTask = idTask;
     }
 
-    @Basic
-    @Column(name = "comment")
     public String getComment() {
         return comment;
     }
@@ -40,8 +30,6 @@ public class CommentsEntity {
         this.comment = comment;
     }
 
-    @Basic
-    @Column(name = "idUser")
     public int getIdUsers() {
         return idUser;
     }
@@ -55,7 +43,7 @@ public class CommentsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CommentsEntity that = (CommentsEntity) o;
+        Comment that = (Comment) o;
 
         if (idComment != that.idComment) return false;
         if (idTask != that.idTask) return false;

@@ -1,5 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {BrowserModule} from "@angular/platform-browser";
+import {FormsModule} from "@angular/forms";
+
+// @ts-ignore
+@NgModule({
+  imports:      [ BrowserModule, FormsModule],
+  declarations: [ AppComponent],
+  bootstrap:    [ AppComponent ]
+})
 
 @Component({
   selector: 'app-root',

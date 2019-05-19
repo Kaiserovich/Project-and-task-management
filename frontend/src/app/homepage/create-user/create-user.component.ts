@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {User} from "../../models/user";
 
 @Component({
   selector: 'app-create-user',
@@ -13,7 +14,16 @@ export class CreateUserComponent implements OnInit {
   }
   @Output() onCreateUser = new EventEmitter<boolean>();
 
-  public onCreateUserClick():void {
-    this.onCreateUser.emit(false);
+  public login:string;
+  public password:string;
+  public personalData:string;
+  public role:string;
+
+
+  public onCreateUserClick(login:string, password:string, personalData:string, ):void{
+    console.log(login);
+    console.log(password);
+    console.log(personalData);
+
   }
 }

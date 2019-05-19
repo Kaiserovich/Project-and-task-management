@@ -15,7 +15,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
    @RequestMapping(value = "/idUser/{idUser}", method = RequestMethod.GET)
     public ResponseEntity<UsersEntity> getUserByIdUsers(@PathVariable(name = "idUser") int idUser) {
         UsersEntity user = userService.getUserByIdUsers(idUser);
