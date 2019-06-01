@@ -4,13 +4,35 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users", schema = "mydb")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getUserByLogin",
+                procedureName = "getUserByLogin",
+                resultClasses = { UsersEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "addUser",
+                procedureName = "addUser",
+                resultClasses = { UsersEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "name",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
 public class UsersEntity {
     private int idUsers;
     private String login;
     private String password;
     private String personalData;
-    private int idRole;
-    private RolesEntity rolesByIdRole;
+    //private int idRole;
+    private RolesEntity idRole;
 
     @Id
     @Column(name = "idUsers" )
@@ -52,15 +74,15 @@ public class UsersEntity {
         this.personalData = personalData;
     }
 
-    @Basic
-    @Column(name = "idRole", insertable = false, updatable = false)
+  /*  @Basic
+    @Column(name = "idRole" insertable = false, updatab,le = false)
     public int getIdRole() {
         return idRole;
     }
 
     public void setIdRole(int idRole) {
         this.idRole = idRole;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -70,7 +92,7 @@ public class UsersEntity {
         UsersEntity that = (UsersEntity) o;
 
         if (idUsers != that.idUsers) return false;
-        if (idRole != that.idRole) return false;
+        //if (idRole != that.idRole) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (personalData != null ? !personalData.equals(that.personalData) : that.personalData != null) return false;
@@ -84,17 +106,17 @@ public class UsersEntity {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (personalData != null ? personalData.hashCode() : 0);
-        result = 31 * result + idRole;
+        //result = 31 * result + idRole;
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "idRole", referencedColumnName = "idRole", nullable = false)
-    public RolesEntity getRolesByIdRole() {
-        return rolesByIdRole;
+    public RolesEntity getIdRole() {
+        return idRole;
     }
 
-    public void setRolesByIdRole(RolesEntity rolesByIdRole) {
-        this.rolesByIdRole = rolesByIdRole;
+    public void setIdRole(RolesEntity idRole) {
+        this.idRole = idRole;
     }
 }

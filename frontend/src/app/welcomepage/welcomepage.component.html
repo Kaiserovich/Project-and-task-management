@@ -1,13 +1,12 @@
 <div class="col-lg-4   containerCompact">
 
-  <label><b>E-mail</b></label>
-  <input type="text" placeholder="Enter E-mail" name="email" required>
-
+  <label><b>Login</b></label>
+  <input type="text" placeholder="Enter Login" name="log" [(ngModel)]="log" required>
   <label><b>Password</b></label>
-  <input type="password" placeholder="Enter Password" name="psw" required>
+  <input type="password" placeholder="Enter Password" name="pas" [(ngModel)]="pas"  required>
 
   <label>
-    <input type="checkbox" checked="checked" name="remember"> Remember me
+    <!--<input type="checkbox" checked="checked"> Remember me-->
   </label>
-  <button class="righted" (click)="LoginClick()">Login</button>
+  <button class="righted" (click)="onSubmit(log)">Login</button>
 </div>

@@ -7,7 +7,6 @@ import java.util.List;
 public interface ProjectService {
 
     ProjectsEntity getProjectByIdProject(int idProject);
-    ProjectsEntity getProjectBySummary(String summary);
 
     List<ProjectsEntity> findAll();
     ProjectsEntity save(ProjectsEntity project);

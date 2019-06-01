@@ -1,6 +1,6 @@
 import {Status} from "./status";
 import {User} from "./user";
-import {Prioritet} from "./prioritet";
+import {Priority} from "./priority";
 import {Project} from "./project";
 
 export class Task {
@@ -8,13 +8,13 @@ export class Task {
   description:string;
   estimation:string;
   personalData:string;
-  createDate:string;
-  dueDate:string;
-  updatedDate:string;
-  resolvedDate:string;
-  closedDate:string;
+  createDate:Date;
+  dueDate:Date;
+  updatedDate:Date;
+  resolvedDate:Date;
+  closedDate:Date;
   idProject:Project ;
-  idPriority:Prioritet;
+  idPriority:Priority;
   idStatus:Status;
   assignee:User;
   reporter:User;

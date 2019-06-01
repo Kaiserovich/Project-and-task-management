@@ -1,16 +1,16 @@
-export class Prioritet {
+export class Priority {
 
   idPriority:number;
   name:string;
 
-  static  clone (prioritet: Prioritet): Prioritet {
-    const  clonePrioritet: Prioritet = new Prioritet();
+  static  clone (prioritet: Priority): Priority {
+    const  clonePrioritet: Priority = new Priority();
     clonePrioritet.idPriority = prioritet.idPriority;
     clonePrioritet.name = prioritet.name;
     return clonePrioritet;
   }
 
-  public getPrioritet() :string{
+  public getPriority() :string{
     return this.name;
   }
 }

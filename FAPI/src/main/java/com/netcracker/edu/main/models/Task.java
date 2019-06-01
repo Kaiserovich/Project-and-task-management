@@ -11,13 +11,16 @@ public class Task {
     private Date updatedDate;
     private Date resolvedDate;
     private Date closedDate;
-    private int idProject;
-    private int idPriority;
-    private int idStatus;
-    private int assignee;
-    private int reporter;
-    private Prioritet prioritiesByIdPriority;
-    private Status statusByIdStatus;
+    private Project idProject;
+    //private int idProject;
+    private Prioritet idPriority;
+    private Status idStatus;
+    private User assignee;
+    private User reporter;
+
+    public Task(){
+
+    }
 
     public int getIdTask() {
         return idTask;
@@ -83,45 +86,7 @@ public class Task {
         this.closedDate = closedDate;
     }
 
-    public int getIdProject() {
-        return idProject;
-    }
 
-    public void setIdProject(int idProject) {
-        this.idProject = idProject;
-    }
-
-    public int getIdPriority() {
-        return idPriority;
-    }
-
-    public void setIdPriority(int idPriority) {
-        this.idPriority = idPriority;
-    }
-
-    public int getIdStatus() {
-        return idStatus;
-    }
-
-    public void setIdStatus(int idStatus) {
-        this.idStatus = idStatus;
-    }
-
-    public int getAssignee() {
-        return assignee;
-    }
-
-    public void setAssignee(int assignee) {
-        this.assignee = assignee;
-    }
-
-    public int getReporter() {
-        return reporter;
-    }
-
-    public void setReporter(int reporter) {
-        this.reporter = reporter;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -157,27 +122,52 @@ public class Task {
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         result = 31 * result + (resolvedDate != null ? resolvedDate.hashCode() : 0);
         result = 31 * result + (closedDate != null ? closedDate.hashCode() : 0);
-        result = 31 * result + idProject;
+        /*result = 31 * result + idProject;
         result = 31 * result + idPriority;
         result = 31 * result + idStatus;
         result = 31 * result + assignee;
-        result = 31 * result + reporter;
+        result = 31 * result + reporter;*/
         return result;
     }
 
-    public Prioritet getPrioritiesByIdPriority() {
-        return prioritiesByIdPriority;
+    public Prioritet getIdPriority() {
+        return idPriority;
     }
 
-    public void setPrioritiesByIdPriority(Prioritet prioritiesByIdPriority) {
-        this.prioritiesByIdPriority = prioritiesByIdPriority;
+    public void setIdPriority(Prioritet prioritiesByIdPriority) {
+        this.idPriority = prioritiesByIdPriority;
     }
 
-    public Status getStatusByIdStatus() {
-        return statusByIdStatus;
+    public Status getIdStatus() {
+        return idStatus;
     }
 
-    public void setStatusByIdStatus(Status statusByIdStatus) {
-        this.statusByIdStatus = statusByIdStatus;
+    public void setIdStatus(Status statusByIdStatus) {
+        this.idStatus = statusByIdStatus;
     }
+
+    public Project getIdProject() {
+        return idProject;
+    }
+
+    public void setIdProject(Project idProject) {
+        this.idProject = idProject;
+    }
+
+    public User getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(User assignee) {
+        this.assignee = assignee;
+    }
+
+    public User getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(User reporter) {
+        this.reporter = reporter;
+    }
+
 }

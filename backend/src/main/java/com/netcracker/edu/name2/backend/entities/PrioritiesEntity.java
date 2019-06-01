@@ -4,6 +4,28 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "priorities", schema = "mydb")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getPrioritetById",
+                procedureName = "getPrioritetById",
+                resultClasses = { PrioritiesEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getPrioritetByName",
+                procedureName = "getPrioritetByName",
+                resultClasses = { PrioritiesEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
 public class PrioritiesEntity {
     private int idPriority;
     private String name;

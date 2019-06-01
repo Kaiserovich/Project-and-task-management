@@ -4,10 +4,22 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "projects", schema = "mydb")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getProjectbyId",
+                procedureName = "getProjectbyId",
+                resultClasses = { ProjectsEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
 public class ProjectsEntity {
     private int idProject;
     private String summary;
-    private int reporter;
+    //private int reporter;
+    private UsersEntity reporter;
 
     @Id
     @Column(name = "idProject")
@@ -29,7 +41,7 @@ public class ProjectsEntity {
         this.summary = summary;
     }
 
-    @Basic
+    /*@Basic
     @Column(name = "reporter")
     public int getReporter() {
         return reporter;
@@ -37,7 +49,7 @@ public class ProjectsEntity {
 
     public void setReporter(int reporter) {
         this.reporter = reporter;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -57,7 +69,16 @@ public class ProjectsEntity {
     public int hashCode() {
         int result = idProject;
         result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        result = 31 * result + reporter;
+        //result = 31 * result + reporter;
         return result;
+    }
+    @ManyToOne
+    @JoinColumn(name = "reporter", referencedColumnName = "idUsers", nullable = false)
+    public UsersEntity getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(UsersEntity reporter) {
+        this.reporter = reporter;
     }
 }

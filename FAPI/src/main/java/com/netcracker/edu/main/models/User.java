@@ -5,8 +5,21 @@ public class User {
     private String login;
     private String password;
     private String personalData;
-    private int idRole;
-    private Role rolesByIdRole;
+    //private int idRole;
+    private Role idRole;
+
+    public User(){
+
+    }
+
+    public User (int idUsers, String login, String password, String personalData, Role role){
+        this.idUsers = idUsers;
+        this.login = login;
+        this.password = password;
+        this.personalData = personalData;
+        this.password = password;
+        this.idRole = role;
+    }
 
 
     public int getIdUsers() {
@@ -43,13 +56,13 @@ public class User {
         this.personalData = personalData;
     }
 
-     public int getIdRole() {
+    /* public int getIdRole() {
         return idRole;
     }
 
     public void setIdRole(int idRole) {
         this.idRole = idRole;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -59,7 +72,7 @@ public class User {
         User that = (User) o;
 
         if (idUsers != that.idUsers) return false;
-        if (idRole != that.idRole) return false;
+       // if (idRole != that.idRole) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (personalData != null ? !personalData.equals(that.personalData) : that.personalData != null) return false;
@@ -73,15 +86,15 @@ public class User {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (personalData != null ? personalData.hashCode() : 0);
-        result = 31 * result + idRole;
+        //result = 31 * result + idRole;
         return result;
     }
 
-       public Role getRolesByIdRole() {
-        return rolesByIdRole;
+       public Role getIdRole() {
+        return idRole;
     }
 
-    public void setRolesByIdRole(Role rolesByIdRole) {
-        this.rolesByIdRole = rolesByIdRole;
+    public void setIdRole(Role idRole) {
+        this.idRole = idRole;
     }
 }

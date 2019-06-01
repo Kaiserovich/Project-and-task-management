@@ -24,9 +24,17 @@ public class TaskController {
         return taskService.getTaskByIdTask(idTask);
     }
 
-    @RequestMapping(value="/signup", method = RequestMethod.POST, produces = "application/json")
+    @PatchMapping("")
+    public Task updateTask(@RequestBody Task taskModel) {
+        {
+            return taskService.saveTask(taskModel);
+        }
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST, produces = "application/json")
     public Task saveTask(@RequestBody Task task){
-        return taskService.save(task);
+        return taskService.saveTask(task);
     }
 
 }

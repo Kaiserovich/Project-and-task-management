@@ -1,7 +1,7 @@
 import {Role} from "./role";
 
 export class User {
-    idUsers:number;
+    idUsers:string;
     login:string;
     password:string;
     personalData:string;

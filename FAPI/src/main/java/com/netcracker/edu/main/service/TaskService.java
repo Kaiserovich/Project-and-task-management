@@ -8,5 +8,5 @@ public interface TaskService {
 
     Task getTaskByIdTask (int idTask);
     List<Task> findAll();
-    Task save(Task task);
+    Task saveTask(Task task);
 }

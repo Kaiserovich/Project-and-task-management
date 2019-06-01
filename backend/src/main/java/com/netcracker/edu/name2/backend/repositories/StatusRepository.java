@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StatusRepository extends CrudRepository<StatusEntity, Long>{
+    StatusEntity getStatusByIdStatus (int idStatus);
+    StatusEntity getStatusByName (String name);
+
 }

@@ -1,18 +1,18 @@
 <div class="col-lg-4   containerCompact">
  <h3 class="centered">New User</h3>
   <label><b>Login</b></label>
-  <!--
-  <input type="text"  name="login" [ngModel]="login" required>
+
+  <input type="text" [(ngModel)]="user.login">
   <label><b>Password</b></label>
-  <input type="text" name="password" [ngModel]="password" required>
+  <input type="text" name="passwordUser" [(ngModel)]="user.password" required>
   <label><b>Personal Data</b></label>
-  <input type="text"  name="personalData" [ngModel]="personalData" required>
-  <label><b>Use Role</b></label>
-  <select>
-    <option>Project manager</option>
-    <option>Developer</option>
-    <option>Tester</option>
+  <input type="text"  name="personalDataUser" [(ngModel)]="user.personalData" required>
+  <label><b>Role</b></label>
+  <select class="form-control" name="idRole" [(ngModel)]="fRole">
+    <option  *ngFor="let comp of rolesName" [value]="comp">
+      {{comp}}
+    </option>
   </select>
-  <button (click)="onCreateUserClick(login, password,personalData)" class="righted">Create</button>
--->
+
+  <button (click)="onCreateUserClick()" class="righted">Create</button>
 </div>

@@ -1,7 +1,9 @@
-import {Component, EventEmitter, Output, OnInit} from '@angular/core';
+import {Component, EventEmitter, Output, OnInit, Input} from '@angular/core';
 import {Task} from '../models/task';
 import {TaskService} from '../services/task.service';
 import {Subscription} from "rxjs";
+import {Project} from "../models/project";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-homepage',
@@ -13,23 +15,32 @@ export class HomepageComponent implements OnInit {
   public isCreateUserVisible: boolean = false;
   public isCreateProjectVisible: boolean = false;
   public isCreateTaskVisible: boolean = false;
-  tasks:Task[];
+  public tasks:Task[];
+  public warn:String;
 
 
   private subscriptions: Subscription[] = [];
 
-  constructor(private taskService:TaskService) {
+  constructor(private taskService:TaskService,
+              private  userService:UserService) {
   }
 
   ngOnInit() {
-    this.loadAllTasks()
+    this.loadAllTasks();
+      this.getUser();
   }
-  @Output() onHomepage = new EventEmitter<boolean>();
-
+  @Output() onHomepage = new EventEmitter();
+  @Input() userId: string;
   private loadAllTasks(): void{
     this.subscriptions.push(this.taskService.getAllTask().subscribe( tasks=>{
       this.tasks = tasks as Task[];
     }))
+  }
+
+  private getUser(){
+    this.subscriptions.push(this.userService.findByLogin(this.userId).subscribe( user=>{
+      this.warn = user.idRole.name;
+      }));
   }
 
   public UserVisible(): void {
@@ -51,10 +62,14 @@ export class HomepageComponent implements OnInit {
   }
 
   public EditClick(task):void {
-    this.onHomepage.emit(false);
 
-
-
+    if(this.userId == task.assignee.login){
+      this.onHomepage.emit(task);
+      this.warn = "";
+    }
+    else {
+      this.warn = "У вас нет прав";
+    }
   }
 }
 

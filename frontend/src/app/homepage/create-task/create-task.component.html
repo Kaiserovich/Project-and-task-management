@@ -1,16 +1,22 @@
 <div class="col-lg-4   containerCompact">
   <h3 class="centered">New Task</h3>
-  <label><b>Code</b></label>
-  <input type="text" placeholder="" name="code" required>
+  <label><b>Project Code</b></label>
+
+  <label><b>Task Code</b></label>
+  <input type="text" placeholder=""   [(ngModel)]="projectId">
   <label><b>Description</b></label>
-  <input type="text" placeholder="" name="description" required>
+  <input type="text" placeholder=""   [(ngModel)]="task.description">
   <label><b>Priority</b></label>
-  <input type="text" placeholder="" name="priority" required>
+  <select class="form-control"  [(ngModel)]="prioritySelect">
+    <option  *ngFor="let comp of priorityName" [value]="comp">
+      {{comp}}
+    </option>
+  </select>
   <label><b>Due Date</b></label>
-  <input type="text" placeholder="" name="duedate" required>
+  <input type="date" placeholder=""  [(ngModel)]="task.dueDate">
   <label><b>Estimation</b></label>
-  <input type="text" placeholder="" name="estimation" required>
+  <input type="text" placeholder=""   [(ngModel)]="task.estimation">
   <label><b>Assignee</b></label>
-  <input type="text" placeholder="" name="assignee" required>
+  <input type="text" [(ngModel)]="assigneeLogin"  >
   <button (click)="onCreateTaskClick()" class="righted">Create</button>
 </div>

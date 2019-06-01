@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class TaskServiceImlp implements TaskService {
 
-    @Value("${backend.server.url}")
+    @Value("http://localhost:8082/")
     private String backendServerUrl;
 
     @Override
@@ -31,7 +31,7 @@ public class TaskServiceImlp implements TaskService {
 
     }
     @Override
-    public Task save(Task task) {
+    public Task saveTask(Task task) {
             RestTemplate restTemplate = new RestTemplate();
         return restTemplate.postForEntity(backendServerUrl + "/api/task", task, Task.class).getBody();
     }

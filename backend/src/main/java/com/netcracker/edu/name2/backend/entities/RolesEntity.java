@@ -4,6 +4,28 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles", schema = "mydb")
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getRoleById",
+                procedureName = "getRoleById",
+                resultClasses = { RolesEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "getRoleByName",
+                procedureName = "getRoleByName",
+                resultClasses = { RolesEntity.class },
+                parameters = {
+                        @StoredProcedureParameter(
+                                name = "log",
+                                type = String.class,
+                                mode = ParameterMode.IN)})
+})
 public class RolesEntity {
     private int idRole;
     private String name;

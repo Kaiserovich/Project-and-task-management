@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -13,6 +14,7 @@ import { CreateTaskComponent } from './homepage/create-task/create-task.componen
 import { CreateUserComponent } from './homepage/create-user/create-user.component';
 import { WorkpageComponent } from './workpage/workpage.component';
 import { OverlayComponent } from './overlay/overlay.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { OverlayComponent } from './overlay/overlay.component';
     CreateTaskComponent,
     CreateUserComponent,
     WorkpageComponent,
-    OverlayComponent
+    OverlayComponent,
+
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

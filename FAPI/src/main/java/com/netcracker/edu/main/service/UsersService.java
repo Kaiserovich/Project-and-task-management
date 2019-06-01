@@ -8,5 +8,5 @@ import java.util.List;
 public interface UsersService {
     List<User> findAll();
     User getUserByLogin (String login);
-    User save(User user);
+    User saveUser(User user);
 }

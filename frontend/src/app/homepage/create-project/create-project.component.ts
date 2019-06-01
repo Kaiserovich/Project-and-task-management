@@ -1,4 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Project} from "../../models/project";
+import {ProjectService} from "../../services/project.service";
+import {User} from "../../models/user";
+import {Role} from "../../models/role";
+import {Subscription} from "rxjs";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-create-project',
@@ -7,14 +13,37 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class CreateProjectComponent implements OnInit {
 
-  constructor() { }
+  project: Project = new Project();
+  public allUsers:User[];
+
+
+  private subscriptions: Subscription[] = [];
+  constructor(private projectService: ProjectService,
+              private userService:UserService) { }
 
   ngOnInit() {
+    this.loadUsers();
+
   }
   @Output() onCreateProject = new EventEmitter<boolean>();
-
-  public onCreateProjectClick():void {
+  @Input() userId: string;
+ /* public onCreateProjectClick():void {
     this.onCreateProject.emit(false);
-  }
+  }*/
+  private loadUsers() : void{
+    this.subscriptions.push(this.userService.getAllUsers().subscribe( user=>{
+      this.allUsers = user as User[];
+      console.log(this.allUsers[1]);
 
+    }));}
+
+  private onCreateProjectClick(){
+    this.subscriptions.push(this.userService.findByLogin(this.userId).subscribe( user=>{
+      this.project.reporter = user;
+      this.projectService.saveProject(this.project).subscribe(()=>{
+        this.project = new Project();
+      });
+    }));
+  this.onCreateProject.emit(false);
+  }
 }

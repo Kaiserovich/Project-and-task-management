@@ -3,7 +3,7 @@ package com.netcracker.edu.main.models;
 public class Project {
     private int idProject;
     private String summary;
-    private int reporter;
+    private User reporter;
 
     public int getIdProject() {
         return idProject;
@@ -21,11 +21,11 @@ public class Project {
         this.summary = summary;
     }
 
-    public int getReporter() {
+    public User getReporter() {
         return reporter;
     }
 
-    public void setReporter(int reporter) {
+    public void setReporter(User reporter) {
         this.reporter = reporter;
     }
 
@@ -47,7 +47,7 @@ public class Project {
     public int hashCode() {
         int result = idProject;
         result = 31 * result + (summary != null ? summary.hashCode() : 0);
-        result = 31 * result + reporter;
+       // result = 31 * result + reporter;
         return result;
     }
 }

@@ -1,8 +1,9 @@
+
+
 <div class="col-lg-4   containerCompact" >
-  <h3 class="centered">New Project</h3>
-  <label><b>Code</b></label>
-  <input type="text" placeholder="" name="code" required>
-  <label><b>Summary</b></label>
-  <input type="text" placeholder="" name="summary" required>
-  <button (click)="onCreateProjectClick()" class="righted">Create</button>
+ <h3 class="centered">New Project</h3>
+ <label><b>Code</b></label> <input type="text" placeholder="" [(ngModel)]="project.idProject" required>
+ <label><b>Summary</b></label>
+ <input type="text" placeholder="" [(ngModel)]="project.summary" required>
+ <button (click)="onCreateProjectClick()" class="righted">Create</button>
 </div>

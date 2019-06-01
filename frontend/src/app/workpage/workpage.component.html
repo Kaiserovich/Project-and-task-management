@@ -1,13 +1,11 @@
 <div class="container">
   <h4>Descriptions</h4>
   <div class="centered">
-    <button type="submit" class="">Edit</button>
-    <button type="submit" class="">Assign</button>
-    <button type="submit" class="">Start</button>
-    <button type="submit" class="">Resolve</button>
-    <button type="submit" class="">Ready for Test</button>
-    <button type="submit" class="">ReOpen</button>
-    <button type="submit" class="">Close</button>
+    <button type="submit" class="" [disabled]="!(task.idStatus.name === 'open')" (click)="updateTaskStatus('in progress')">Start</button>
+    <button type="submit" class="" [disabled]="!(task.idStatus.name === 'in progress')" (click)="updateTaskStatus('resolved')">Resolve</button>
+    <button type="submit" class="" [disabled]="!(task.idStatus.name === 'resolved')" (click)="updateTaskStatus('ready for test')">Ready for Test</button>
+
+    <button type="submit" class="" [disabled]="!(task.idStatus.name === 'ready for test')" (click)="updateTaskStatus('closed')">Close</button>
   </div>
 </div>
 
@@ -18,13 +16,13 @@
       <label>Priority: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="priority" required>
+      <label>{{task.idPriority.name}} </label>
     </div>
     <div class="col-md-1">
     <label>Assignee: </label>
   </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="assignee" required>
+      <label>{{task.assignee.login}} </label>
     </div>
   </div>
 
@@ -33,13 +31,13 @@
     <label>Status: </label>
   </div>
   <div class="col-md-5">
-    <input type="textSecond" placeholder="" name="status" required>
+    <label>{{task.idStatus.name}} </label>
   </div>
   <div class="col-md-1">
     <label>Reporter: </label>
   </div>
   <div class="col-md-5">
-    <input type="textSecond" placeholder="" name="reporter" required>
+    <label>{{task.reporter.login}} </label>
   </div>
 </div>
 
@@ -48,7 +46,7 @@
       <label>Estimation: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="estimation" required>
+      <label>{{task.estimation}} </label>
     </div>
   </div>
 </div>
@@ -60,7 +58,7 @@
       <label>Created: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="Created" required>
+      <label>{{task.createDate}} </label>
     </div>
   </div>
   <div class="row">
@@ -68,7 +66,7 @@
       <label>Updated: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="Updated" required>
+      <label>{{task.updatedDate}} </label>
     </div>
   </div>
   <div class="row">
@@ -76,7 +74,7 @@
       <label>Resolved: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="Resolved" required>
+      <label>{{task.resolvedDate}} </label>
     </div>
   </div>
   <div class="row">
@@ -84,27 +82,16 @@
       <label>Closed: </label>
     </div>
     <div class="col-md-5">
-      <input type="textSecond" placeholder="" name="Closed" required>
+      <label>{{task.closedDate}} </label>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <h4>Attachments:</h4>
-</div>
+
 
 
 <div class="container">
-  <h4>Comments:</h4>
-  <div class="row">
-    <div class="offset-md-8">
-      <button type="submit" class="">Go</button>
-    </div>
-  </div>
-</div>
 
-<div class="container">
-  <h4>Comments:</h4>
   <div class="row">
     <div class="offset-md-8">
       <button type="submit" class="" (click)="BackClick()">Back</button>

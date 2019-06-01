@@ -24,10 +24,6 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectsEntity getProjectByIdProject(int idProject) {
         return projectRepository.getProjectByIdProject(idProject);
     }
-    @Override
-    public ProjectsEntity getProjectBySummary(String summary) {
-        return projectRepository.getProjectBySummary(summary);
-    }
 
     @Override
     public ProjectsEntity save(ProjectsEntity project) {

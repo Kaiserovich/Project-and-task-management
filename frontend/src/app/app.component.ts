@@ -1,7 +1,9 @@
-import {Component, NgModule} from '@angular/core';
+import {Component, Input, NgModule} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
+import {User} from "./models/user";
+import {Task} from "./models/task";
 
 // @ts-ignore
 @NgModule({
@@ -17,23 +19,28 @@ import {FormsModule} from "@angular/forms";
 })
 export class AppComponent {
   title = 'frontend';
-
+  public userId: string;
+  public task: Task;
   constructor(private http: HttpClient){
 
   }
-
+public user:User= new User();
   public isWelcomePageVisible: boolean = true;
   public isHomePageVisible: boolean = false;
   public isWorkPageVisible: boolean = false;
 
-  public closeWelcomePageAndOpenHomePage():void{
+  public closeWelcomePageAndOpenHomePage(id):void{
     this.isHomePageVisible = true;
     this.isWelcomePageVisible = ! this.isWelcomePageVisible;
+    this.userId = id;
+
+
   }
 
-  public HomePageVisible(): void {
+  public HomePageVisible(task): void {
     this.isHomePageVisible = ! this.isHomePageVisible;
     this.isWorkPageVisible = ! this.isWorkPageVisible;
+    this.task = task;
   }
 
   public WorkPageVisible(): void {
@@ -41,11 +48,4 @@ export class AppComponent {
     this.isWorkPageVisible = ! this.isWorkPageVisible;
   }
 
-
-
-  public clickFunction():void{
-    this.http.get( "/api/").subscribe( value => {
-      console.log(value);
-    })
-  }
 }

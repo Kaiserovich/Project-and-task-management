@@ -7,5 +7,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProjectRepository extends CrudRepository<ProjectsEntity, Long> {
     ProjectsEntity getProjectByIdProject(int idProject);
-    ProjectsEntity getProjectBySummary(String summary);
 }

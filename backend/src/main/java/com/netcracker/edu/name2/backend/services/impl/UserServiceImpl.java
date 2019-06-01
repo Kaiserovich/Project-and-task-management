@@ -24,13 +24,14 @@ public class UserServiceImpl implements UserService {
 
     }
     @Override
-    public UsersEntity getUserByLogin (String login){
-        return userRepository.getUserByLogin(login);
-    }
-    @Override
     public UsersEntity save(UsersEntity user) {
         return userRepository.save(user);
     }
+    @Override
+    public UsersEntity getUserByLogin(String login){
+        return  userRepository.getUserByLogin(login);
+    }
+
 
 
 }

@@ -21,6 +21,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+
     @RequestMapping(value = "/login/{login}", method = RequestMethod.GET)
     public ResponseEntity<UsersEntity> getUserByLogin(@PathVariable(name = "login") String login) {
         UsersEntity user = userService.getUserByLogin(login);
@@ -33,7 +34,8 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public UsersEntity saveUser(@RequestBody UsersEntity user) {
+    public UsersEntity saveNewUser(@RequestBody UsersEntity user) {
         return userService.save(user);
     }
+
 }

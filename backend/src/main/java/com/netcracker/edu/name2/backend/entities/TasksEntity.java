@@ -1,10 +1,14 @@
 package com.netcracker.edu.name2.backend.entities;
 
+
+import com.netcracker.edu.name2.backend.services.TaskService;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "tasks", schema = "mydb")
+
 public class TasksEntity {
     private int idTask;
     private String description;
@@ -14,13 +18,11 @@ public class TasksEntity {
     private Date updatedDate;
     private Date resolvedDate;
     private Date closedDate;
-    private int idProject;
-    private int idPriority;
-    private int idStatus;
-    private int assignee;
-    private int reporter;
-    private PrioritiesEntity prioritiesByIdPriority;
-    private StatusEntity statusByIdStatus;
+    private ProjectsEntity idProject;
+    private PrioritiesEntity idPriority;
+    private StatusEntity idStatus;
+    private UsersEntity assignee;
+    private UsersEntity reporter;
 
     @Id
     @Column(name = "idTask")
@@ -102,7 +104,7 @@ public class TasksEntity {
         this.closedDate = closedDate;
     }
 
-    @Basic
+    /*@Basic
     @Column(name = "idProject")
     public int getIdProject() {
         return idProject;
@@ -111,7 +113,7 @@ public class TasksEntity {
     public void setIdProject(int idProject) {
         this.idProject = idProject;
     }
-
+/*
     @Basic
     @Column(name = "idPriority" ,insertable = false, updatable = false)
     public int getIdPriority() {
@@ -150,7 +152,7 @@ public class TasksEntity {
 
     public void setReporter(int reporter) {
         this.reporter = reporter;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -186,31 +188,61 @@ public class TasksEntity {
         result = 31 * result + (updatedDate != null ? updatedDate.hashCode() : 0);
         result = 31 * result + (resolvedDate != null ? resolvedDate.hashCode() : 0);
         result = 31 * result + (closedDate != null ? closedDate.hashCode() : 0);
-        result = 31 * result + idProject;
+        /*result = 31 * result + idProject;
         result = 31 * result + idPriority;
         result = 31 * result + idStatus;
         result = 31 * result + assignee;
-        result = 31 * result + reporter;
+        result = 31 * result + reporter;*/
         return result;
     }
+    @ManyToOne
+    @JoinColumn(name = "idProject", referencedColumnName = "idProject", nullable = false)
+    public ProjectsEntity getIdProject() {
+        return idProject;
+    }
+
+    public void setIdProject(ProjectsEntity idProject) {
+        this.idProject = idProject;
+    }
+
 
     @ManyToOne
     @JoinColumn(name = "idPriority", referencedColumnName = "idPriority", nullable = false)
-    public PrioritiesEntity getPrioritiesByIdPriority() {
-        return prioritiesByIdPriority;
+    public PrioritiesEntity getIdPriority() {
+        return idPriority;
     }
 
-    public void setPrioritiesByIdPriority(PrioritiesEntity prioritiesByIdPriority) {
-        this.prioritiesByIdPriority = prioritiesByIdPriority;
+    public void setIdPriority(PrioritiesEntity prioritiesByIdPriority) {
+        this.idPriority = prioritiesByIdPriority;
     }
 
     @ManyToOne
     @JoinColumn(name = "idStatus", referencedColumnName = "idStatus", nullable = false)
-    public StatusEntity getStatusByIdStatus() {
-        return statusByIdStatus;
+    public StatusEntity getIdStatus() {
+        return idStatus;
     }
 
-    public void setStatusByIdStatus(StatusEntity statusByIdStatus) {
-        this.statusByIdStatus = statusByIdStatus;
+    public void setIdStatus(StatusEntity statusByIdStatus) {
+        this.idStatus = statusByIdStatus;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "assignee", referencedColumnName = "idUsers", nullable = false)
+    public UsersEntity getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(UsersEntity assignee) {
+        this.assignee = assignee;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "reporter", referencedColumnName = "idUsers", nullable = false)
+    public UsersEntity getReporter() {
+        return reporter;
+    }
+
+    public void setReporter(UsersEntity reporter) {
+        this.reporter = reporter;
     }
 }

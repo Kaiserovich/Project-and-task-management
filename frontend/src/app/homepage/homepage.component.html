@@ -6,16 +6,18 @@
     <button class="" (click)="UserVisible()">New User</button>
 
   </div>
- <div class="col-lg-6">
-  <input type="filters" placeholder="Filters" name="filt" required>
+ <div class="col-lg-3">
+   <label><b> Login: </b> {{userId}} </label>
  </div>
+  <div class="col-lg-3">
+    <label><b> Role: </b> {{warn}} </label>
+  </div>
 </div>
 
  <div class="container">
 <table class="table">
   <thead class="thead-inverse">
   <tr>
-    <th>Code</th>
     <th>Task</th>
     <th>Priority</th>
     <th>Status</th>
@@ -30,18 +32,17 @@
   </thead>
   <tbody id="Table">
   <tr *ngFor="let task of tasks">
-    <td>{{task.idProject}}</td>
     <td>{{task.idTask}}</td>
-    <td>{{task.idPriority}}</td>
-    <td>{{task.idStatus}}</td>
+    <td>{{task.idPriority.name}}</td>
+    <td>{{task.idStatus.name}}</td>
     <td>{{task.createDate}}</td>
     <td>{{task.updatedDate}}</td>
     <td>{{task.dueDate}}</td>
     <td>{{task.estimation}}</td>
-    <td>{{task.assignee}}</td>
+    <td>{{task.assignee.login}}</td>
     <td>{{task.description}}</td>
     <td>
-      <button style="align-content: center" class="btn btn-success" (click)="EditClick(task)">Edit</button>
+      <button style="align-content: center" class="btn btn-success" (click)="EditClick(task)" [disabled]="!(userId === task.assignee.login)">Edit</button>
     </td>
   </tr>
   <tr>
@@ -51,24 +52,12 @@
   </tr>
   </tbody>
 </table>
-   <nav aria-label="...">
-     <ul class="pagination pagination-lg align-content-end">
-       <li class="page-item active" aria-current="page">
-      <span class="page-link">
-        1
-        <span class="sr-only">(current)</span>
-      </span>
-       </li>
-       <li class="page-item"><a class="page-link" href="#">2</a></li>
-       <li class="page-item"><a class="page-link" href="#">3</a></li>
-     </ul>
-   </nav>
- </div>
+</div>
 <app-overlay [isVisible]="isCreateTaskVisible || isCreateUserVisible|| isCreateProjectVisible" (onChanged)="onChanged($event)"></app-overlay>
 
 <app-create-user *ngIf="isCreateUserVisible" (onCreateUser)="UserVisible()"></app-create-user>
-<app-create-task *ngIf="isCreateTaskVisible" (onCreateTask)="TaskVisible()"></app-create-task>
-<app-create-project *ngIf="isCreateProjectVisible" (onCreateProject)="ProjectVisible()" ></app-create-project>
+<app-create-task *ngIf="isCreateTaskVisible" (onCreateTask)="TaskVisible()" [userId]="userId"></app-create-task>
+<app-create-project *ngIf="isCreateProjectVisible" (onCreateProject)="ProjectVisible()" [userId]="userId"></app-create-project>
 
 
 

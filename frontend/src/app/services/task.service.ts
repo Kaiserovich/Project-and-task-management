@@ -11,10 +11,13 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   saveNewTask(task: Task): Observable<Task>{
-    return this.http.post<Task>("/api/task/", task);
+    return this.http.post<Task>("/api/task", task);
   }
 
   getAllTask(): Observable<Task[]>{
     return this.http.get<Task[]>("/api/task/");
+  }
+  updateTask(task: Task): Observable<Task> {
+    return this.http.patch<Task>('api/task', task);
   }
 }
