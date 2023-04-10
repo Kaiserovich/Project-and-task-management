@@ -1,11 +1,10 @@
-# Project-and-task-management
+## Web-app “**Project and task management”**
 
-Project and task management
-Web application.
-Project and Task Management Project
-Micro service architecture
-Written in Java using the Spring Framework.
-Angular and MySQL.
+A web-based project and task management application written in Java using the Spring Framework. Angular and MySQL were used in the creation. Microservice architecture. Client part implements CRUD logic for project and task entities. Implemented user authorization
+
+## Веб-приложение “**Управление проектами и задачами”**
+
+Веб-приложение по управлению проектами и задачами, написанный на Java с использованием Spring Framework. При создании использовались Angular и MySQL. Микросервисная архитектура. Клиентская часть реализует CRUD логику для сущностей проекты и задачи. Реализована авторизация пользователей
 
 ![Рисунок3](https://user-images.githubusercontent.com/31707173/220578565-fc9c1187-1aa8-4ed1-b0c3-f1a8847febcf.png)
 ![Рисунок4](https://user-images.githubusercontent.com/31707173/220578574-bdef380c-f48a-42ad-8b35-723c77bb5e23.png)
